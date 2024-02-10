@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Log In</title>
+    <link rel="stylesheet" href="\static\style\login.css">
+</head>
+<body>
+    <h1>Log In</h1>
+    <form method="post" action="/login">
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+        <p>Don't have an account? <a href="/signup">Sign up</a></p>
+    </form>    
+</html>
